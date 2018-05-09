@@ -1,0 +1,4 @@
+
+FRAMEWORK_SEARCH_PATHS = $(SRCROOT)/../letsgameSDK
+
+HEADER_SEARCH_PATHS = $(BUILD_ROOT)/letsgame/ $(BUILD_ROOT)/../letsgame/

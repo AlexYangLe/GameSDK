@@ -1,0 +1,56 @@
+;(function() {
+var messagingIframe,webInfoIframe,
+bridge = 'sdk',
+CUSTOM_PROTOCOL_SCHEME = 'jscall';
+
+
+if (window[bridge]) { return }
+
+// 创建隐藏的iframe
+function _createQueueReadyIframe(doc) {
+    messagingIframe = doc.createElement('iframe');
+    messagingIframe.style.display = 'none';
+    doc.documentElement.appendChild(messagingIframe);
+    webInfoIframe = doc.createElement('iframe');
+    webInfoIframe.style,display = 'none';
+    doc.documentElement.appendChild(webInfoIframe);
+}
+
+
+
+window[bridge] = {};
+
+window[bridge]['webVer'] = function webVer(webVer){
+
+webInfoIframe.src=CUSTOM_PROTOCOL_SCHEME + ':' + arguments.callee.name + ':' + encodeURIComponent(JSON.stringify(arguments));
+};
+
+
+
+window[bridge]['payWithBlue'] = function payWithBlue(payGateId,price,cardNO,roleId){
+
+messagingIframe.src=CUSTOM_PROTOCOL_SCHEME + ':' + arguments.callee.name + ':' + encodeURIComponent(JSON.stringify(arguments));
+};
+
+
+window[bridge]['closeWin'] = function closeWin(oid,status,extraInfo){
+
+messagingIframe.src=CUSTOM_PROTOCOL_SCHEME + ':' + arguments.callee.name + ':' + encodeURIComponent(JSON.stringify(arguments));
+};
+
+//var methods = ["closeWin(uid,nick,sessionKey)"];
+//var methodsWithoutParam =["closeWin"];
+//for (var i=0;i<methods.length;i++){
+//    var method = methods[i];
+//    var methodWithoutParam = methodsWithoutParam[i];
+//    var code = "(window[bridge])[methodWithoutParam] = function " + method + " {var fs =CUSTOM_PROTOCOL_SCHEME + ':' + arguments.callee.name + ':' + encodeURIComponent(JSON.stringify(arguments)); messagingIframe.src = fs;alert('closeWin src:'+messagingIframe.src);}";
+//    eval(code);
+//}
+
+//创建iframe，必须在创建app之后，否则会出现死循环
+_createQueueReadyIframe(document);
+//通知js开始初始化
+if(typeof(onInjectJsOver)=='function')
+    onInjectJsOver();
+
+})();

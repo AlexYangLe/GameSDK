@@ -103,8 +103,8 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resources = "GameSDKResources.bundle"
-  s.vendored_frameworks = "GameSDK.framework"
+  s.resources = "**/GameSDKResources.bundle"
+  s.vendored_frameworks = "**/GameSDK.framework"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"

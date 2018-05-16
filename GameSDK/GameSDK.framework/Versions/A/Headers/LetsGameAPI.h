@@ -22,7 +22,7 @@ static BOOL hiddenLogo = NO;
 //默认横屏
 static BOOL DeviceOrientationIsHorizontal = YES;
 
-static NSString *version = @"3.5.6";
+static NSString *version = @"3.5.7";
 
 @interface LetsGameAPI : NSObject<UIApplicationDelegate>
 

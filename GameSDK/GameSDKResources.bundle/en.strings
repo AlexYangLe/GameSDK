@@ -34,3 +34,8 @@
 "Confirm_password" = "Confirm";
 "input_new_pwd" = "Please input new password";
 "back" = "Back";
+"play_btn_notice" = "You have logged in to the tourist users to avoid data loss for account security. Please click the registered account to complete the registration. The tourist information will be automatically transferred to the new account.";
+"Notice" = "Notice";
+"Continue" = "Continue";
+"Log_in" = "Log in";
+

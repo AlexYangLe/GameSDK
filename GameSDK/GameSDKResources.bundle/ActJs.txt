@@ -1,0 +1,29 @@
+;(function() {
+var messagingIframe,
+bridge = 'campaign',
+CUSTOM_PROTOCOL_SCHEME = 'jscall';
+
+
+if (window[bridge]) { return }
+
+// 创建隐藏的iframe
+function _createQueueReadyIframe(doc) {
+    messagingIframe = doc.createElement('iframe');
+    messagingIframe.style.display = 'none';
+    doc.documentElement.appendChild(messagingIframe);
+}
+
+window[bridge] = {};
+
+window[bridge]['closeWin'] = function closeWin(){
+document.location=CUSTOM_PROTOCOL_SCHEME + ':' + arguments.callee.name;
+};
+
+
+//创建iframe，必须在创建app之后，否则会出现死循环
+_createQueueReadyIframe(document);
+//通知js开始初始化
+//alert('onInjectJsOver='+typeof(onInjectJsOver));
+if(typeof(onInjectJsOver)=='function')
+    onInjectJsOver();
+})();

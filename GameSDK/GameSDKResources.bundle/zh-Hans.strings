@@ -35,3 +35,8 @@
 "forget_change_password" = "修改/忘记密码？";
 "input_new_pwd" = "请输入新密码";
 "back" = "返回";
+"play_btn_notice" = "您登录了游客用户，为了账户安全，避免数据丢失。请点击注册账号完成注册。游客信息将自动转移至新帐号。";
+"Notice" = "提示";
+"Continue" = "继续登录";
+"Log_in" = "注册账号;
+

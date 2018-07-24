@@ -22,7 +22,7 @@ static BOOL hiddenLogo = NO;
 //默认横屏
 static BOOL DeviceOrientationIsHorizontal = YES;
 
-static NSString *version = @"3.5.7";
+static NSString *version = @"3.5.17";
 
 @interface LetsGameAPI : NSObject<UIApplicationDelegate>
 
@@ -88,4 +88,6 @@ static NSString *version = @"3.5.7";
 -(void)gameObtainSafeSetInfoWithAppId:(NSString *)appId
                             ChannelId:(NSString *)channelId
                            handleCallBack:(void (^)(BOOL resultStatus))callBack;
+//关闭登录页面
+-(void)hidenLogInView;
 @end

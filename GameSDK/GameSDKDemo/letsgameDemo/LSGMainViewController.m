@@ -82,28 +82,44 @@
 
 - (void)onClickTest {
 
-    [LetsGameAPI instance].appId = @"100";//10047
-    [LetsGameAPI instance].appKey = @"f899139df5e1059396431415e770c6dd";//eccd9f7dc92858b741132fda313130cf
-    [LetsGameAPI instance].channelId = @"10010";
+    [LetsGameAPI instance].appId = @"100";
+    [LetsGameAPI instance].appKey = @"f899139df5e1059396431415e770c6dd";
+    [LetsGameAPI instance].channelId = @"1000";
     [LetsGameAPI hiddenLogo:YES];
-//    [LetsGameAPI disableFB:YES];
-//    [LetsGameAPI disableGoogle:YES];
-//    [LetsGameAPI disableLine:YES];
-//    [LetsGameAPI disableWeChat:YES];
     NSLog(@"sdk version:%@",[[LetsGameAPI instance] version]);
-    //启用vk登录
-    VKBridge *vkBridge = [[VKBridge alloc] initWithVKAppId:@"5029792"];
-    [LetsGameAPI instance].vkBridge = vkBridge;
-    
-    [LetsGameAPI instance].succBlock = ^(NSString *userId, NSString *sessionKey, LSGAccountType type) {
-        self.sessionKey = sessionKey;
-        self.resultLabel.text = [NSString stringWithFormat:@"login succ: userId = %@, sessionKey = %@, accountType = %ld", userId, sessionKey, type];
-    };
-    [LetsGameAPI instance].dismissBlock = ^() {
-        self.resultLabel.text = @"dismiss without login";
-    };    
-    
-    [[LetsGameAPI instance] showLoginView];
+    //sdk login 初始化
+    [[LetsGameAPI instance] SDKLoginInitofResponse:^(BOOL result) {
+        if (result) {
+            NSLog(@"初始化成功");
+            //    [LetsGameAPI disableFB:YES];
+            //    [LetsGameAPI disableGoogle:YES];
+            //    [LetsGameAPI disableLine:YES];
+            //    [LetsGameAPI disableWeChat:YES];
+            //启用vk登录
+            VKBridge *vkBridge = [[VKBridge alloc] initWithVKAppId:@"5029792"];
+            [LetsGameAPI instance].vkBridge = vkBridge;
+            //微信登陆
+            [[LetsGameAPI instance] registerAppWeChatOfSuccess:^{
+                NSLog(@"注册成功");
+            } failure:^{
+                NSLog(@"注册失败");
+            }];
+            
+            [LetsGameAPI instance].succBlock = ^(NSString *userId, NSString *sessionKey, LSGAccountType type) {
+                self.sessionKey = sessionKey;
+                self.resultLabel.text = [NSString stringWithFormat:@"login succ: userId = %@, sessionKey = %@, accountType = %ld", userId, sessionKey, type];
+            };
+            [LetsGameAPI instance].dismissBlock = ^() {
+                //登录失败操作
+                self.resultLabel.text = @"dismiss without login";
+            };
+            
+            [[LetsGameAPI instance] showLoginView];
+        }else{
+            NSLog(@"初始化失败");
+            self.resultLabel.text = @"初始化失败";
+        }
+    }];
 }
 
 

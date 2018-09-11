@@ -22,7 +22,7 @@ static BOOL hiddenLogo = NO;
 //默认横屏
 static BOOL DeviceOrientationIsHorizontal = YES;
 
-static NSString *version = @"3.5.18";
+static NSString *version = @"3.5.23";
 
 @interface LetsGameAPI : NSObject<UIApplicationDelegate>
 
@@ -39,7 +39,7 @@ static NSString *version = @"3.5.18";
 + (instancetype)instance;
 
 -(NSString*)version;
-
+- (void)SDKLoginInitofResponse:(void (^)(BOOL result))response;
 - (void)showLoginView;
 - (void)showLoginViewInView:(UIView *)view;
 
@@ -63,9 +63,7 @@ static NSString *version = @"3.5.18";
 //是否安装微信
 -(BOOL)isWeChatInstall;
 //向微信注册应用
--(void)registerAppWeChatWithAppId:(NSString *)appId
-                           appKey:(NSString *)appKey
-                          Success:(void (^)())success
+-(void)registerAppWeChatOfSuccess:(void (^)())success
                           failure:(void (^)())failure;
 
 - (BOOL)handleOpenURL:(NSURL *)url

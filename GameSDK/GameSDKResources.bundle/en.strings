@@ -34,8 +34,8 @@
 "Confirm_password" = "Confirm";
 "input_new_pwd" = "Please input new password";
 "back" = "Back";
-"play_btn_notice" = "You have logged in to the tourist users to avoid data loss for account security. Please click the registered account to complete the registration. The tourist information will be automatically transferred to the new account.";
-"Notice" = "Notice";
+"play_btn_notice" = "Your current account is GUEST. Please registrate email & password to better secure your account and avoid data loss. All your guest info will be moved to the new account.";
+"Notice" = "Warning";
 "Continue" = "Continue";
-"Log_in" = "Log in";
+"Log_in" = "sign up";
 

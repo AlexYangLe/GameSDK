@@ -34,13 +34,6 @@
             NSLog(@"NO 不侵权");
         }
     }];
-    
-    //微信登陆
-    [[LetsGameAPI instance] registerAppWeChatWithAppId:@"100" appKey:@"f899139df5e1059396431415e770c6dd" Success:^{
-        NSLog(@"注册成功");
-    } failure:^{
-        NSLog(@"注册失败");
-    }];
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[LetsGameAPI instance] registeIapObserver];

@@ -34,3 +34,7 @@
 "forget_change_password" = "修改/忘記密碼";
 "input_new_pwd" = "請輸入新密碼";
 "back" = "返回";
+"play_btn_notice" = "您登錄了遊客帳戶。為了您的帳號安全，避免數據丟失，請點擊註冊帳號完成註冊。遊客信息將自動轉移至新帳號。";
+"Notice" = "提示";
+"Continue" = "繼續登錄";
+"Log_in" = "註冊帳號";
